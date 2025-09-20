@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Fortune Teller - Mystical Readings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tarot-styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">🌟 Daily Horoscope</a>
+            <a href="tarot.html" class="nav-link active">🔮 Tarot Reading</a>
+        </div>
+    </nav>
+
+    <!-- Main container for the tarot app -->
+    <div class="container">
+        <!-- Header section -->
+        <header class="header">
+            <h1>🔮 Tarot Fortune Teller</h1>
+            <p>Discover the wisdom of the cards and unlock the mysteries of your path</p>
+        </header>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            <!-- Reading type selection -->
+            <div id="reading-selection" class="reading-selection">
+                <h2>Choose Your Reading Type</h2>
+                <p>Select the type of tarot reading you'd like to receive:</p>
+                
+                <div class="reading-options">
+                    <div class="reading-option" data-type="single">
+                        <div class="option-icon">🃏</div>
+                        <h3>Single Card</h3>
+                        <p>Quick daily guidance from one card</p>
+                        <button class="select-reading-btn" data-type="single">
+                            Draw One Card
+                        </button>
+                    </div>
+                    
+                    <div class="reading-option" data-type="three">
+                        <div class="option-icon">🃏🃏🃏</div>
+                        <h3>Three Card Spread</h3>
+                        <p>Past, Present, and Future insights</p>
+                        <button class="select-reading-btn" data-type="three">
+                            Draw Three Cards
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card drawing area -->
+            <div id="card-drawing" class="card-drawing hidden">
+                <!-- The Wise Fortune Teller -->
+                <div class="fortune-teller-container">
+                    <div class="wizard-figure">
+                        <div class="wizard-avatar">🧙‍♂️</div>
+                        <div class="magical-aura">✨</div>
+                    </div>
+                    <div class="fortune-dialogue" id="gandalf-dialogue">
+                        <div class="dialogue-bubble">
+                            <p>"Focus your mind, young seeker. The cards shall reveal what must be known..."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Focus on Your Question</h2>
+                <p>The wise wizard awaits. Clear your mind and focus on what you'd like guidance about...</p>
+                
+                <!-- Card deck -->
+                <div class="card-deck">
+                    <div class="card-back" id="deck-card">
+                        <div class="card-pattern">🌟</div>
+                        <p>Click to draw your cards</p>
+                    </div>
+                </div>
+
+                <button id="draw-cards-btn" class="draw-button">
+                    ✨ Draw Cards ✨
+                </button>
+            </div>
+
+            <!-- Loading indicator -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>The cards are revealing their secrets...</p>
+            </div>
+
+            <!-- Error message -->
+            <div id="error-message" class="error-message hidden">
+                <p>The mystical connection was interrupted. Please try again!</p>
+            </div>
+
+            <!-- Reading results -->
+            <div id="reading-results" class="reading-results hidden">
+                <!-- Results will be populated by JavaScript -->
+            </div>
+
+            <!-- New reading button -->
+            <div id="new-reading" class="new-reading hidden">
+                <button id="new-reading-btn" class="new-reading-button">
+                    🔮 Get Another Reading
+                </button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>✨ Let the ancient wisdom of the tarot guide your path ✨</p>
+        </footer>
+    </div>
+
+    <!-- Include JavaScript files -->
+    <script src="tarot-script.js"></script>
+</body>
+</html>

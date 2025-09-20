@@ -1,0 +1,519 @@
+/* Tarot-specific styles */
+
+/* Navigation styling */
+.navigation {
+    background: rgba(0,0,0,0.2);
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Adjust main container for navigation */
+.container {
+    margin-top: 80px;
+}
+
+/* Reading selection styles */
+.reading-selection {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.reading-selection h2 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+.reading-selection p {
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.reading-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.reading-option {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.reading-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    border-color: #667eea;
+}
+
+.option-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.reading-option h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.reading-option p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.select-reading-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.select-reading-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* The Wise Fortune Teller */
+.fortune-teller-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.wizard-figure {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: wizard-float 4s ease-in-out infinite;
+}
+
+@keyframes wizard-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+}
+
+.wizard-avatar {
+    font-size: 5em;
+    filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6));
+    animation: wizard-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes wizard-glow {
+    0% { 
+        filter: drop-shadow(0 0 15px rgba(102, 126, 234, 0.4));
+        transform: scale(1);
+    }
+    100% { 
+        filter: drop-shadow(0 0 25px rgba(102, 126, 234, 0.8));
+        transform: scale(1.05);
+    }
+}
+
+.magical-aura {
+    position: absolute;
+    font-size: 1.5em;
+    top: -10px;
+    right: -10px;
+    animation: aura-sparkle 2s ease-in-out infinite;
+}
+
+@keyframes aura-sparkle {
+    0%, 100% { 
+        opacity: 0.6;
+        transform: rotate(0deg) scale(1);
+    }
+    50% { 
+        opacity: 1;
+        transform: rotate(180deg) scale(1.2);
+    }
+}
+
+.fortune-dialogue {
+    position: relative;
+    max-width: 320px;
+}
+
+.dialogue-bubble {
+    background: white;
+    border-radius: 20px;
+    padding: 15px 20px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 2px solid #667eea;
+    animation: dialogue-pulse 3s ease-in-out infinite;
+}
+
+@keyframes dialogue-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.dialogue-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #667eea;
+}
+
+.dialogue-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 32px;
+    width: 0;
+    height: 0;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 13px solid white;
+}
+
+.dialogue-bubble p {
+    margin: 0;
+    color: #2c3e50;
+    font-style: italic;
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+/* Card drawing area */
+.card-drawing {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.card-drawing h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+.card-drawing p {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+.card-deck {
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.card-back {
+    width: 140px;
+    height: 220px;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid #f39c12;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.card-back:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.card-pattern {
+    font-size: 2.5em;
+    color: #f39c12;
+    margin-bottom: 10px;
+}
+
+.card-back p {
+    color: white;
+    font-size: 0.9em;
+    text-align: center;
+    margin: 0;
+}
+
+.draw-button {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.draw-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(243, 156, 18, 0.4);
+}
+
+/* Reading results */
+.reading-results {
+    margin-top: 40px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.5s ease;
+}
+
+.reading-results.hidden {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+}
+
+.reading-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.reading-header h2 {
+    color: #2c3e50;
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+.reading-type {
+    color: #666;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.reading-interpretation {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* Card display */
+.cards-container {
+    display: grid;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.cards-container.single-card {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 30px auto;
+}
+
+.cards-container.three-cards {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.tarot-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.tarot-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-position {
+    color: #667eea;
+    font-weight: bold;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.card-name {
+    color: #2c3e50;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.card-reversed {
+    color: #e74c3c;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.card-meaning {
+    color: #555;
+    line-height: 1.7;
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.card-element {
+    display: inline-block;
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* New reading button */
+.new-reading {
+    text-align: center;
+    margin-top: 40px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.5s ease;
+}
+
+.new-reading.hidden {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+}
+
+.new-reading-button {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.new-reading-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(155, 89, 182, 0.4);
+}
+
+/* Responsive design for tarot */
+@media (max-width: 600px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .nav-link {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+    
+    .container {
+        margin-top: 120px;
+    }
+    
+    .reading-options {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .reading-option {
+        padding: 20px;
+    }
+    
+    .cards-container.three-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .tarot-card {
+        padding: 20px;
+    }
+    
+    .card-name {
+        font-size: 1.5em;
+    }
+    
+    /* Fortune teller responsive adjustments */
+    .fortune-teller-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .wizard-figure {
+        transform: scale(0.9);
+    }
+    
+    .fortune-dialogue {
+        max-width: 280px;
+        text-align: center;
+    }
+    
+    .dialogue-bubble {
+        padding: 12px 15px;
+    }
+    
+    .dialogue-bubble p {
+        font-size: 0.85em;
+    }
+}

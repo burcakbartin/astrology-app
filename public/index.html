@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Horoscope App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link active">🌟 Daily Horoscope</a>
+            <a href="tarot.html" class="nav-link">🔮 Tarot Reading</a>
+        </div>
+    </nav>
+
+    <!-- Main container for the entire app -->
+    <div class="container">
+        <!-- Header section with title and description -->
+        <header class="header">
+            <h1>🌟 Daily Horoscope</h1>
+            <p>Discover what the stars have in store for you today!</p>
+        </header>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            <!-- Form for selecting zodiac sign -->
+            <form id="horoscope-form" class="horoscope-form">
+                <div class="form-group">
+                    <label for="zodiac-select">Choose Your Zodiac Sign:</label>
+                    <select id="zodiac-select" name="zodiac" required>
+                        <option value="">-- Select Your Sign --</option>
+                        <!-- Options will be populated by JavaScript -->
+                        <option value="aries">♈ Aries (Mar 21 - Apr 19)</option>
+                        <option value="taurus">♉ Taurus (Apr 20 - May 20)</option>
+                        <option value="gemini">♊ Gemini (May 21 - Jun 20)</option>
+                        <option value="cancer">♋ Cancer (Jun 21 - Jul 22)</option>
+                        <option value="leo">♌ Leo (Jul 23 - Aug 22)</option>
+                        <option value="virgo">♍ Virgo (Aug 23 - Sep 22)</option>
+                        <option value="libra">♎ Libra (Sep 23 - Oct 22)</option>
+                        <option value="scorpio">♏ Scorpio (Oct 23 - Nov 21)</option>
+                        <option value="sagittarius">♐ Sagittarius (Nov 22 - Dec 21)</option>
+                        <option value="capricorn">♑ Capricorn (Dec 22 - Jan 19)</option>
+                        <option value="aquarius">♒ Aquarius (Jan 20 - Feb 18)</option>
+                        <option value="pisces">♓ Pisces (Feb 19 - Mar 20)</option>
+                    </select>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" id="get-horoscope-btn">
+                    Get My Horoscope ✨
+                </button>
+            </form>
+
+            <!-- Loading indicator (hidden by default) -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Reading the stars for you...</p>
+            </div>
+
+            <!-- Error message container (hidden by default) -->
+            <div id="error-message" class="error-message hidden">
+                <p>Sorry, something went wrong. Please try again!</p>
+            </div>
+
+            <!-- Horoscope results container (hidden by default) -->
+            <div id="horoscope-result" class="horoscope-result hidden">
+                <!-- Results will be populated by JavaScript -->
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by Aztro API | Built with ❤️ for astrology lovers</p>
+        </footer>
+    </div>
+
+    <!-- Include our JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

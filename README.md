@@ -138,6 +138,12 @@ The code is extensively commented to help you understand:
 - **Script.js**: DOM manipulation, event handling, and async/await patterns
 - **Styles.css**: CSS Grid, Flexbox, animations, and responsive design
 
+## 🌟 Development Workflow
+
+This project uses the following branch structure:
+- `main` - Stable production-ready code
+- `develop` - Active development branch for new features
+
 ## 🎨 Customization Ideas
 
 Feel free to modify and customize:

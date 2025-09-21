@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birth Chart Reading - Cosmic Soul Map</title>
+    <!-- Google Fonts for Professional Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="nav-container">
+            <a href="start.html" class="nav-link">🏠 Cosmic Portal</a>
+            <a href="index.html" class="nav-link">🌟 Daily Horoscope</a>
+            <a href="tarot.html" class="nav-link">🔮 Tarot Reading</a>
+            <a href="birth-chart.html" class="nav-link active">🌌 Birth Chart</a>
+        </div>
+    </nav>
+
+    <!-- Main container -->
+    <div class="container">
+        <!-- Header section -->
+        <header class="header">
+            <h1>🌌 Cosmic Soul Map</h1>
+            <p>Discover your complete astrological blueprint through the planets at your birth</p>
+        </header>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            <!-- Birth Information Form -->
+            <div id="birth-form-section" class="content-section active">
+                <div class="mystical-header">
+                    <h2>✨ Enter Your Birth Information</h2>
+                    <p class="mystical-subtitle">The cosmic coordinates of your soul's entry into this realm</p>
+                </div>
+
+                <form id="birth-chart-form" class="birth-chart-form">
+                    <div class="birth-form-grid">
+                        <div class="form-group">
+                            <label for="birth-date">📅 Birth Date</label>
+                            <input type="date" id="birth-date" name="birthDate" required>
+                            <small>The day your soul chose to incarnate</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="birth-time">🕐 Birth Time (Optional)</label>
+                            <input type="time" id="birth-time" name="birthTime">
+                            <small>Exact time enhances accuracy for Rising sign and houses</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="birth-location">📍 Birth Location (Optional)</label>
+                            <input type="text" id="birth-location" name="birthLocation" placeholder="City, Country">
+                            <small>Where on Earth your cosmic journey began</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="birth-name">✨ Name (Optional)</label>
+                            <input type="text" id="birth-name" name="birthName" placeholder="Your name">
+                            <small>For personalizing your cosmic reading</small>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="generate-chart-btn" class="cosmic-button">
+                        🔮 Reveal My Cosmic Blueprint
+                    </button>
+                </form>
+            </div>
+
+            <!-- Loading indicator -->
+            <div id="chart-loading" class="loading hidden">
+                <div class="cosmic-spinner"></div>
+                <p>Calculating planetary positions...</p>
+                <small>Consulting the cosmic records of your birth moment</small>
+            </div>
+
+            <!-- Birth Chart Results -->
+            <div id="birth-chart-results" class="birth-chart-results hidden">
+                <div class="chart-header">
+                    <h2 id="chart-title">Your Cosmic Soul Map</h2>
+                    <p id="chart-subtitle">The planetary symphony at your moment of birth</p>
+                </div>
+
+                <!-- Core Trinity -->
+                <div class="core-trinity">
+                    <h3>🌟 Your Cosmic Trinity</h3>
+                    <div class="trinity-cards">
+                        <div class="trinity-card" id="sun-card">
+                            <div class="planet-symbol">☉</div>
+                            <h4>Sun Sign</h4>
+                            <div class="sign-info" id="sun-info">
+                                <div class="sign-name"></div>
+                                <div class="sign-element"></div>
+                            </div>
+                            <p class="trinity-meaning">Your core essence</p>
+                        </div>
+
+                        <div class="trinity-card" id="moon-card">
+                            <div class="planet-symbol">☽</div>
+                            <h4>Moon Sign</h4>
+                            <div class="sign-info" id="moon-info">
+                                <div class="sign-name"></div>
+                                <div class="sign-element"></div>
+                            </div>
+                            <p class="trinity-meaning">Your emotional nature</p>
+                        </div>
+
+                        <div class="trinity-card" id="rising-card">
+                            <div class="planet-symbol">⬆</div>
+                            <h4>Rising Sign</h4>
+                            <div class="sign-info" id="rising-info">
+                                <div class="sign-name"></div>
+                                <div class="sign-element"></div>
+                            </div>
+                            <p class="trinity-meaning">Your outer persona</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Planetary Positions -->
+                <div class="planetary-positions">
+                    <h3>🪐 Your Planetary Court</h3>
+                    <div class="planets-grid" id="planets-grid">
+                        <!-- Planets will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Soul Points -->
+                <div class="soul-points">
+                    <h3>🌟 Sacred Soul Points</h3>
+                    <div class="soul-points-grid" id="soul-points-grid">
+                        <!-- Soul points will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Interpretations -->
+                <div class="chart-interpretations">
+                    <h3>🔮 Your Cosmic Story</h3>
+                    <div class="interpretation-sections" id="interpretation-sections">
+                        <!-- Interpretations will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Generate New Chart Button -->
+                <div class="new-chart-section">
+                    <button type="button" onclick="resetChart()" class="cosmic-button secondary">
+                        ✨ Calculate Another Chart
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Planetary positions calculated at your moment of birth | Built with cosmic wisdom ✨</p>
+        </footer>
+    </div>
+
+    <!-- Include JavaScript -->
+    <script src="birth-chart.js"></script>
+</body>
+</html>

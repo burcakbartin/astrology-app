@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Horoscope App</title>
+    <!-- Google Fonts for Professional Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navigation">
         <div class="nav-container">
+            <a href="start.html" class="nav-link">🏠 Cosmic Portal</a>
             <a href="index.html" class="nav-link active">🌟 Daily Horoscope</a>
             <a href="tarot.html" class="nav-link">🔮 Tarot Reading</a>
+            <a href="birth-chart.html" class="nav-link">🌌 Birth Chart</a>
+            <a href="#" class="nav-link" onclick="showComparison()">⚖️ Sign Comparison</a>
+            <a href="#" class="nav-link" onclick="showElements()">🔥 Elements</a>
         </div>
     </nav>
 
@@ -25,48 +33,153 @@
 
         <!-- Main content area -->
         <main class="main-content">
-            <!-- Form for selecting zodiac sign -->
-            <form id="horoscope-form" class="horoscope-form">
-                <div class="form-group">
-                    <label for="zodiac-select">Choose Your Zodiac Sign:</label>
-                    <select id="zodiac-select" name="zodiac" required>
-                        <option value="">-- Select Your Sign --</option>
-                        <!-- Options will be populated by JavaScript -->
-                        <option value="aries">♈ Aries (Mar 21 - Apr 19)</option>
-                        <option value="taurus">♉ Taurus (Apr 20 - May 20)</option>
-                        <option value="gemini">♊ Gemini (May 21 - Jun 20)</option>
-                        <option value="cancer">♋ Cancer (Jun 21 - Jul 22)</option>
-                        <option value="leo">♌ Leo (Jul 23 - Aug 22)</option>
-                        <option value="virgo">♍ Virgo (Aug 23 - Sep 22)</option>
-                        <option value="libra">♎ Libra (Sep 23 - Oct 22)</option>
-                        <option value="scorpio">♏ Scorpio (Oct 23 - Nov 21)</option>
-                        <option value="sagittarius">♐ Sagittarius (Nov 22 - Dec 21)</option>
-                        <option value="capricorn">♑ Capricorn (Dec 22 - Jan 19)</option>
-                        <option value="aquarius">♒ Aquarius (Jan 20 - Feb 18)</option>
-                        <option value="pisces">♓ Pisces (Feb 19 - Mar 20)</option>
-                    </select>
+            <!-- Daily Horoscope Section -->
+            <div id="horoscope-section" class="content-section active">
+                <!-- Form for selecting zodiac sign -->
+                <form id="horoscope-form" class="horoscope-form">
+                    <div class="form-group">
+                        <label for="zodiac-select">Choose Your Zodiac Sign:</label>
+                        <select id="zodiac-select" name="zodiac" required>
+                            <option value="">-- Select Your Sign --</option>
+                            <!-- Options will be populated by JavaScript -->
+                            <option value="aries">♈ Aries (Mar 21 - Apr 19)</option>
+                            <option value="taurus">♉ Taurus (Apr 20 - May 20)</option>
+                            <option value="gemini">♊ Gemini (May 21 - Jun 20)</option>
+                            <option value="cancer">♋ Cancer (Jun 21 - Jul 22)</option>
+                            <option value="leo">♌ Leo (Jul 23 - Aug 22)</option>
+                            <option value="virgo">♍ Virgo (Aug 23 - Sep 22)</option>
+                            <option value="libra">♎ Libra (Sep 23 - Oct 22)</option>
+                            <option value="scorpio">♏ Scorpio (Oct 23 - Nov 21)</option>
+                            <option value="sagittarius">♐ Sagittarius (Nov 22 - Dec 21)</option>
+                            <option value="capricorn">♑ Capricorn (Dec 22 - Jan 19)</option>
+                            <option value="aquarius">♒ Aquarius (Jan 20 - Feb 18)</option>
+                            <option value="pisces">♓ Pisces (Feb 19 - Mar 20)</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" id="get-horoscope-btn">
+                        Get My Horoscope ✨
+                    </button>
+                </form>
+
+                <!-- Loading indicator (hidden by default) -->
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Reading the stars for you...</p>
                 </div>
 
-                <!-- Submit button -->
-                <button type="submit" id="get-horoscope-btn">
-                    Get My Horoscope ✨
-                </button>
-            </form>
+                <!-- Error message container (hidden by default) -->
+                <div id="error-message" class="error-message hidden">
+                    <p>Sorry, something went wrong. Please try again!</p>
+                </div>
 
-            <!-- Loading indicator (hidden by default) -->
-            <div id="loading" class="loading hidden">
-                <div class="spinner"></div>
-                <p>Reading the stars for you...</p>
+                <!-- Horoscope results container (hidden by default) -->
+                <div id="horoscope-result" class="horoscope-result hidden">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
             </div>
 
-            <!-- Error message container (hidden by default) -->
-            <div id="error-message" class="error-message hidden">
-                <p>Sorry, something went wrong. Please try again!</p>
+            <!-- Sign Comparison Section -->
+            <div id="comparison-section" class="content-section hidden">
+                <div class="mystical-header">
+                    <h2>⚖️ Cosmic Sign Comparison</h2>
+                    <p class="mystical-subtitle">Explore the mystical connections between zodiac signs</p>
+                </div>
+
+                <div class="comparison-form">
+                    <div class="sign-selectors">
+                        <div class="form-group">
+                            <label for="sign1-select">First Sign:</label>
+                            <select id="sign1-select" name="sign1">
+                                <option value="">-- Select First Sign --</option>
+                                <option value="aries">♈ Aries</option>
+                                <option value="taurus">♉ Taurus</option>
+                                <option value="gemini">♊ Gemini</option>
+                                <option value="cancer">♋ Cancer</option>
+                                <option value="leo">♌ Leo</option>
+                                <option value="virgo">♍ Virgo</option>
+                                <option value="libra">♎ Libra</option>
+                                <option value="scorpio">♏ Scorpio</option>
+                                <option value="sagittarius">♐ Sagittarius</option>
+                                <option value="capricorn">♑ Capricorn</option>
+                                <option value="aquarius">♒ Aquarius</option>
+                                <option value="pisces">♓ Pisces</option>
+                            </select>
+                        </div>
+
+                        <div class="vs-symbol">VS</div>
+
+                        <div class="form-group">
+                            <label for="sign2-select">Second Sign:</label>
+                            <select id="sign2-select" name="sign2">
+                                <option value="">-- Select Second Sign --</option>
+                                <option value="aries">♈ Aries</option>
+                                <option value="taurus">♉ Taurus</option>
+                                <option value="gemini">♊ Gemini</option>
+                                <option value="cancer">♋ Cancer</option>
+                                <option value="leo">♌ Leo</option>
+                                <option value="virgo">♍ Virgo</option>
+                                <option value="libra">♎ Libra</option>
+                                <option value="scorpio">♏ Scorpio</option>
+                                <option value="sagittarius">♐ Sagittarius</option>
+                                <option value="capricorn">♑ Capricorn</option>
+                                <option value="aquarius">♒ Aquarius</option>
+                                <option value="pisces">♓ Pisces</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" id="compare-btn" onclick="compareSignsAction()">
+                        🔮 Compare Signs
+                    </button>
+                </div>
+
+                <div id="comparison-result" class="comparison-result hidden">
+                    <!-- Comparison results will be populated by JavaScript -->
+                </div>
             </div>
 
-            <!-- Horoscope results container (hidden by default) -->
-            <div id="horoscope-result" class="horoscope-result hidden">
-                <!-- Results will be populated by JavaScript -->
+            <!-- Elements Section -->
+            <div id="elements-section" class="content-section hidden">
+                <div class="mystical-header">
+                    <h2>🔥 Elemental Wisdom</h2>
+                    <p class="mystical-subtitle">Discover the sacred elements that govern the zodiac</p>
+                </div>
+
+                <div class="elements-grid">
+                    <div class="element-card fire" onclick="showElementSigns('fire')">
+                        <div class="element-symbol">🔥</div>
+                        <h3>Fire</h3>
+                        <p>Passion • Energy • Creativity</p>
+                        <div class="element-signs">Aries • Leo • Sagittarius</div>
+                    </div>
+
+                    <div class="element-card earth" onclick="showElementSigns('earth')">
+                        <div class="element-symbol">🌍</div>
+                        <h3>Earth</h3>
+                        <p>Stability • Practicality • Material</p>
+                        <div class="element-signs">Taurus • Virgo • Capricorn</div>
+                    </div>
+
+                    <div class="element-card air" onclick="showElementSigns('air')">
+                        <div class="element-symbol">💨</div>
+                        <h3>Air</h3>
+                        <p>Communication • Ideas • Intellect</p>
+                        <div class="element-signs">Gemini • Libra • Aquarius</div>
+                    </div>
+
+                    <div class="element-card water" onclick="showElementSigns('water')">
+                        <div class="element-symbol">💧</div>
+                        <h3>Water</h3>
+                        <p>Emotion • Intuition • Spirituality</p>
+                        <div class="element-signs">Cancer • Scorpio • Pisces</div>
+                    </div>
+                </div>
+
+                <div id="element-details" class="element-details hidden">
+                    <!-- Element details will be populated by JavaScript -->
+                </div>
             </div>
         </main>
 

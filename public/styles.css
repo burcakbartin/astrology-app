@@ -6,12 +6,230 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #1a1a1a; /* Darker color for better contrast */
-    /* Beautiful gradient background */
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.7;
+    color: #333333;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    /* Clean white background */
+    background: #ffffff;
     min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mystical starry background effect - only for cosmic portal */
+.cosmic-portal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: twinkle 4s infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Clean background - no overlay effects for other pages */
+body::before {
+    display: none;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.3; }
+}
+
+/* Start Page Portal Styling - Mystical Theme */
+.cosmic-portal {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    /* Mystical starry night gradient for start page only */
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+}
+
+.portal-hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    position: relative;
+}
+
+.cosmic-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 600;
+    background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    letter-spacing: -0.02em;
+}
+
+.portal-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #e6e6fa;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+}
+
+.cosmic-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #d4af37;
+    font-style: italic;
+    letter-spacing: 0.01em;
+}
+
+.portal-features {
+    flex: 1;
+    padding: 0 20px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.feature-card {
+    background: linear-gradient(135deg, rgba(25, 25, 70, 0.8), rgba(60, 60, 120, 0.6));
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s;
+    opacity: 0;
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+    animation: shimmer 1.5s ease-in-out;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+}
+
+.feature-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.feature-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: #ffd700;
+    margin-bottom: 15px;
+    letter-spacing: -0.01em;
+}
+
+.feature-description {
+    font-family: 'Inter', sans-serif;
+    color: #e6e6fa;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.feature-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.feature-details span {
+    color: #d4af37;
+    font-size: 1.1rem;
+}
+
+.feature-button {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #1a1a2e;
+    padding: 14px 28px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.01em;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.feature-card:hover .feature-button {
+    background: linear-gradient(45deg, #ffed4e, #ffd700);
+    transform: scale(1.05);
+}
+
+.portal-footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.cosmic-quote p {
+    font-size: 1.4rem;
+    color: #e6e6fa;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.portal-credits p {
+    color: #d4af37;
+    font-size: 0.9rem;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
 }
 
 /* Navigation styling */
@@ -36,12 +254,15 @@ body {
 }
 
 .nav-link {
+    font-family: 'Inter', sans-serif;
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 25px;
     transition: all 0.3s ease;
     font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: 0.01em;
     background: rgba(255,255,255,0.1);
     border: 1px solid rgba(255,255,255,0.2);
 }
@@ -49,231 +270,208 @@ body {
 .nav-link:hover {
     background: rgba(255,255,255,0.2);
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,255,255,0.1);
 }
 
 .nav-link.active {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-}
-
-/* Main container that centers everything */
-.container {
-    max-width: 800px;
-    margin: 80px auto 0; /* Add top margin for fixed navigation */
-    padding: 20px;
-    min-height: calc(100vh - 80px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Header styling */
-.header {
-    text-align: center;
-    margin-bottom: 40px;
-    color: white;
-}
-
-.header h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.header p {
-    font-size: 1.2em;
-    opacity: 0.9;
-}
-
-/* Main content area */
-.main-content {
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    margin-bottom: 20px;
-}
-
-/* Form styling */
-.horoscope-form {
-    margin-bottom: 30px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #2d2d2d; /* Darker for better contrast */
-    font-size: 1.1em;
-}
-
-/* Dropdown select styling */
-select {
-    width: 100%;
-    padding: 15px;
-    font-size: 1em;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    background-color: white;
-    transition: border-color 0.3s ease;
-}
-
-select:focus {
-    outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
-}
-
-/* Submit button styling */
-button[type="submit"] {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: white;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-button[type="submit"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-button[type="submit"]:active {
-    transform: translateY(0);
-}
-
-/* Loading spinner */
-.loading {
-    text-align: center;
-    padding: 30px;
-}
-
-.spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #667eea;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 15px;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Error message styling */
-.error-message {
-    background-color: #ffe6e6;
-    border: 1px solid #ff9999;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    color: #990000; /* Darker red for better contrast */
-    font-weight: 500;
-}
-
-/* Horoscope results container */
-.horoscope-result {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Darker background for better contrast */
-    border-radius: 15px;
-    padding: 30px;
-    color: #ffffff;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Stronger text shadow for better readability */
-}
-
-.horoscope-result h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.horoscope-result .date {
-    text-align: center;
-    font-size: 1em;
-    opacity: 0.95; /* Less transparent for better readability */
-    margin-bottom: 25px;
-    font-weight: 500;
-}
-
-.horoscope-result .description {
-    font-size: 1.2em; /* Slightly larger for better readability */
-    line-height: 1.8;
-    margin-bottom: 25px;
-    text-align: center;
-    font-weight: 400;
-}
-
-/* Details grid for mood, color, etc. */
-.horoscope-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.detail-item {
-    background: rgba(255,255,255,0.15); /* Slightly less transparent for better contrast */
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.3); /* Add subtle border */
-}
-
-.detail-item .label {
-    font-weight: bold;
-    font-size: 0.95em; /* Slightly larger */
-    opacity: 0.9; /* Less transparent */
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.detail-item .value {
-    font-size: 1.15em; /* Slightly larger for better readability */
-    font-weight: bold;
-}
-
-/* Utility classes */
-.hidden {
-    display: none;
-}
-
-/* Footer styling */
-.footer {
-    text-align: center;
-    color: white;
-    opacity: 0.9; /* Less transparent for better readability */
-    margin-top: 20px;
-    font-weight: 400;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    background: rgba(255,215,0,0.2);
+    border-color: rgba(255,215,0,0.5);
+    color: #ffd700;
 }
 
 /* Responsive design */
-@media (max-width: 600px) {
-    .container {
-        padding: 10px;
+@media (max-width: 768px) {
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
     }
-    
-    .header h1 {
-        font-size: 2.5em;
+
+    .nav-link {
+        padding: 8px 15px;
+        font-size: 14px;
     }
-    
-    .main-content {
+
+    .cosmic-title h1 {
+        font-size: 2.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .feature-card {
         padding: 20px;
     }
-    
-    .horoscope-details {
-        grid-template-columns: 1fr;
-    }
+}
+
+/* Rest of existing styles for other pages... */
+/* (Container, header, main-content styles for horoscope, tarot, birth chart pages) */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    letter-spacing: -0.02em;
+}
+
+.header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #555555;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.content-section {
+    background: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 20px;
+    padding: 30px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+    margin-top: 40px;
+}
+
+.footer p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* Birth Chart Form Styling */
+.mystical-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.mystical-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    letter-spacing: -0.02em;
+}
+
+.mystical-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #6c5ce7;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    margin-bottom: 20px;
+}
+
+.birth-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+}
+
+.form-group input {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: #ffffff;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
+.form-group small {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #a29bfe;
+    font-style: italic;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+.cosmic-button {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.01em;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+    margin: 0 auto;
+    display: block;
+}
+
+.cosmic-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+    background: linear-gradient(135deg, #5b4cdb 0%, #9c88ff 100%);
 }

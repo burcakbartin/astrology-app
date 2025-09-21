@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Portal - Your Mystical Journey Begins</title>
+    <!-- Google Fonts for Professional Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Main container -->
+    <div class="cosmic-portal">
+        <!-- Hero section -->
+        <header class="portal-hero">
+            <div class="cosmic-title">
+                <h1>🌌 Cosmic Portal</h1>
+                <p class="portal-subtitle">Welcome, seeker of cosmic wisdom</p>
+                <div class="cosmic-tagline">Choose your mystical journey through the stars</div>
+            </div>
+        </header>
+
+        <!-- Feature selection grid -->
+        <main class="portal-features">
+            <div class="features-grid">
+
+                <!-- Daily Horoscope Card -->
+                <div class="feature-card horoscope-card" onclick="navigateToFeature('index.html')">
+                    <div class="feature-icon">🌟</div>
+                    <h3>Daily Horoscope</h3>
+                    <p class="feature-description">Discover what the stars have planned for your day</p>
+                    <div class="feature-details">
+                        <span>• Personalized daily guidance</span>
+                        <span>• All 12 zodiac signs</span>
+                        <span>• Lucky colors & numbers</span>
+                    </div>
+                    <div class="feature-button">Begin Your Day</div>
+                </div>
+
+                <!-- Birth Chart Card -->
+                <div class="feature-card birth-chart-card" onclick="navigateToFeature('birth-chart.html')">
+                    <div class="feature-icon">🌌</div>
+                    <h3>Cosmic Soul Map</h3>
+                    <p class="feature-description">Reveal your complete astrological blueprint</p>
+                    <div class="feature-details">
+                        <span>• Sun, Moon & Rising signs</span>
+                        <span>• All planetary positions</span>
+                        <span>• Soul points & Lilith</span>
+                    </div>
+                    <div class="feature-button">Map My Soul</div>
+                </div>
+
+                <!-- Tarot Reading Card -->
+                <div class="feature-card tarot-card" onclick="navigateToFeature('tarot.html')">
+                    <div class="feature-icon">🔮</div>
+                    <h3>Tarot Wisdom</h3>
+                    <p class="feature-description">Seek guidance from the ancient cards</p>
+                    <div class="feature-details">
+                        <span>• Single card readings</span>
+                        <span>• Three card spreads</span>
+                        <span>• Major Arcana insights</span>
+                    </div>
+                    <div class="feature-button">Draw Cards</div>
+                </div>
+
+                <!-- Sign Comparison Card -->
+                <div class="feature-card comparison-card" onclick="navigateToFeature('index.html', 'comparison')">
+                    <div class="feature-icon">⚖️</div>
+                    <h3>Cosmic Compatibility</h3>
+                    <p class="feature-description">Explore connections between zodiac signs</p>
+                    <div class="feature-details">
+                        <span>• Love compatibility</span>
+                        <span>• Friendship analysis</span>
+                        <span>• Elemental harmony</span>
+                    </div>
+                    <div class="feature-button">Compare Signs</div>
+                </div>
+
+                <!-- Elements Exploration Card -->
+                <div class="feature-card elements-card" onclick="navigateToFeature('index.html', 'elements')">
+                    <div class="feature-icon">🔥</div>
+                    <h3>Elemental Wisdom</h3>
+                    <p class="feature-description">Understand the sacred elements that govern the zodiac</p>
+                    <div class="feature-details">
+                        <span>• Fire, Earth, Air, Water</span>
+                        <span>• Elemental personalities</span>
+                        <span>• Sacred element groups</span>
+                    </div>
+                    <div class="feature-button">Explore Elements</div>
+                </div>
+
+                <!-- Zodiac Encyclopedia Card -->
+                <div class="feature-card encyclopedia-card" onclick="showZodiacOverview()">
+                    <div class="feature-icon">📚</div>
+                    <h3>Zodiac Encyclopedia</h3>
+                    <p class="feature-description">Deep dive into the mysteries of each sign</p>
+                    <div class="feature-details">
+                        <span>• Complete sign profiles</span>
+                        <span>• Mythology & archetypes</span>
+                        <span>• Crystals & colors</span>
+                    </div>
+                    <div class="feature-button">Study Signs</div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Footer with cosmic wisdom -->
+        <footer class="portal-footer">
+            <div class="cosmic-quote">
+                <p>"As above, so below - your cosmic journey awaits among the stars"</p>
+            </div>
+            <div class="portal-credits">
+                <p>Crafted with cosmic love ✨ | Your personal astrology sanctuary</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Include JavaScript for navigation -->
+    <script>
+        // Navigation function for feature cards
+        function navigateToFeature(page, section = null) {
+            if (section) {
+                sessionStorage.setItem('navigateToSection', section);
+            }
+            window.location.href = page;
+        }
+
+        function showZodiacOverview() {
+            navigateToFeature('index.html', 'elements');
+        }
+
+        // Page load animations and setup
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureCards = document.querySelectorAll('.feature-card');
+
+            // Stagger the entrance animation
+            featureCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+
+            // Add floating animation to cosmic title
+            const title = document.querySelector('.cosmic-title h1');
+            setInterval(() => {
+                title.style.transform = 'translateY(-5px)';
+                setTimeout(() => {
+                    title.style.transform = 'translateY(0)';
+                }, 1000);
+            }, 3000);
+        });
+
+        console.log('🌌 Welcome to your Cosmic Portal!');
+    </script>
+</body>
+</html>
